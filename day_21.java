@@ -69,9 +69,7 @@ public class day_21 {
     }
     
     private static void solveA() {
-        var temp = numbers.get("root");
-        var result = temp.get();
-        System.out.println("A: " + result);
+        System.out.println(numbers.get("root").get());
     }
     
     private static void solveB() throws IOException {
