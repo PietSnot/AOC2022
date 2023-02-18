@@ -1,0 +1,38 @@
+For day 17 part B, it is immediately clear that we cannot do brute-force, as we did with part A. So, instead I made two TreeMaps, heightRock<Long, Integer> and rockHeight<Integer, Rock>, and I ran the code for 1000 rocks.
+
+For the test input, it was easy to see a pattern arising: after rock 15, there was a fixed increase in height for every 35 additional rocks, so it was a doddle to get the total as mentioned on the web-page.
+
+For the real thing, it was a bit more complex. I could not discover any pattern, no matter how hard I looked. Then I ran the code for 25_000 rocks. My container is a Set<Point17>, with Point17 a record with x- and y-coordinates. To limit the number of observations, I only looked at all the heights that filled the width of the container completely, checking that such a height matched with a rock (using the heightRock map).
+
+I have my results and findings in the excel file day 17.xlsx.
+
+I noticed that from rock 3460, there was a fixed increase in height of 2.671 for every increase of 1.695 rocks.
+
+So, that gave the formula
+
+k			rock			height
+0, 1, 2, ...		3460 + (k * 1695)	5459 + k * 2671
+
+Setting k to  589.970.499, we get rock number  999.999.999.265, with a height of  1.575.811.208.288.
+
+At first, I thought that we had to get another 735 rocks to go, to get to the required 1_000_000_000_000 rocks, but that was a mistake. I counted the rocks starting with 0, and the exercise started counting from 1, so in fact I had to go another 734 rocks.
+
+So, from my maps I got this output printed:
+
+uit de javacode	(rots en hoogte)	
+rots 3460: 5459		
+rots 4194: 6658		
+rots 5155: 8130		
+delta 4194 en 3460:		1199
+
+and my final result was:
+
+1.575.811.208.288 + 1.199 =  1.575.811.209.487 
+
+
+Piet Muis
+The Hague, Holland
+18-02-2023
+
+
+
